@@ -6,15 +6,23 @@ const submitOrder = $('#submit-order');
 const newTr = `
 <tr>
 <td class="pt-3-half">
-<select id="buy-sell_0">
-  <option value="" disabled selected hidden>Select</option>
-</select>
-</td>
-<td class="pt-3-half"><input id="client-name_0"></td>
-<td class="pt-3-half"><select id="sku_0"><option value="" disabled selected hidden>Select</option></select></td>
-<td class="pt-3-half"><select id="quantity_0"><option value="" disabled selected hidden>Select</option></select></td>
-<td class="pt-3-half" id="price-per-unit_0"></td>
-<td><span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span></td>
+                <select id="buy-sell_0" class="browser-default custom-select custom-select-lg mb-3">
+                  <option value="" disabled selected hidden>Select</option>
+                </select>
+              </td>
+              <td class="pt-3-half"><input class="form-control" id="client-name_0"></td>
+              <td class="pt-3-half">
+                <select id="sku_0" class="browser-default custom-select custom-select-lg mb-3">
+                  <option value="" disabled selected hidden>Select</option>
+                </select>
+              </td>
+              <td class="pt-3-half">
+
+                <input class="form-control" type="number" step="1" id="quantity_0">
+              </td>
+              <td class="pt-3-half" id="price-per-unit_0"></td>
+              <td><span class="table-remove"><button type="button"
+                    class="btn btn-default btn-rounded btn-sm my-0">Remove</button></span></td>
 </tr>`;
 
 // This will create the NewOrder Modal when clicked.
@@ -49,9 +57,10 @@ init();
 
 // display buy price or selt price
 function getBuyOrSellPrice(e) {
+  var product_tr = $(this).parents('tr');
   e.preventDefault();
-  $('#price-per-unit_0').text('');
-  const sku = e.target.value;
+  $('#price-per-unit_0', product_tr).text('');
+  const sku = $("#sku_0", product_tr).val();
   console.log(sku);
 
   $.ajax({
@@ -61,22 +70,25 @@ function getBuyOrSellPrice(e) {
     console.log(res);
 
     // setting buy or sell price
-    if ($('#buy-sell_0').val() === 'Buy') {
-      $('<span>').appendTo($('#price-per-unit_0')).text(res.currentPurchasePrice);
-    } else {
-      $('<span>').appendTo($('#price-per-unit_0')).text(res.currentSalePrice);
+    if ($('#buy-sell_0', product_tr).val() === 'Buy') {
+      $('<span>').appendTo($('#price-per-unit_0', product_tr)).text("$" + res.currentPurchasePrice);
+    } else if ($('#buy-sell_0', product_tr).val() === 'Sell'){
+      $('<span>').appendTo($('#price-per-unit_0', product_tr)).text("$" + res.currentSalePrice);
     }
 
     // show product 'not available' when quantity = 0
     if (res.inventoryQuantity <= 0) {
-      $('<span>').appendTo($('#quantity_0')).attr('value', 'Not Available').text('Not Available');
+      $('<span>').appendTo($('#quantity_0', product_tr)).attr('value', 'Not Available').text('Not Available');
     }
-    $('#quantity_0').attr('max', res.inventoryQuantity);
+    $('#quantity_0', product_tr).attr('max', res.inventoryQuantity);
   });
 }
 
 // selecting sku event
 $('#sku_0').on('change', getBuyOrSellPrice);
+
+$('#buy-sell_0').on('change', getBuyOrSellPrice);
+
 
 // this is for handling the table in the NewOrder screen
 // ----- Code from Bootstrap ------
