@@ -62,11 +62,11 @@ module.exports = function (app) {
       const orderRow = await db.Order.create({
         date: moment.now(),
       });
-
       await req.body.forEach((e) => {
         e.orderId = orderRow.dataValues.orderId;
       });
 
+      //handle product table update
       await db.OrderDetail.bulkCreate(req.body);
 
       await req.body.forEach((e) => {
