@@ -177,7 +177,7 @@ submitOrder.on('click', (event) => {
 
   // Call addOrder function to add new inventory, and clear the form
   addOrder(newOrderData);
-  //window.location.replace('/inventory');
+  window.location.replace('/inventory');
 });
 
 $('#close-screen').on('click', (e) => {
