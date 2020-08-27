@@ -66,9 +66,9 @@ module.exports = function (app) {
         e.orderId = orderRow.dataValues.orderId;
       });
 
-      //handle product table update
       await db.OrderDetail.bulkCreate(req.body);
 
+      //handle product table update
       await req.body.forEach((e) => {
         if(e.buyOrSell=== 'Sell'){
           db.Product.increment(
