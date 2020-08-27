@@ -63,10 +63,25 @@ module.exports = function (app) {
         date: moment.now(),
       });
 
-      req.body.forEach((e) => {
+      await req.body.forEach((e) => {
         e.orderId = orderRow.dataValues.orderId;
       });
+
       await db.OrderDetail.bulkCreate(req.body);
+
+      await req.body.forEach((e) => {
+        if(e.buyOrSell=== 'Sell'){
+          db.Product.increment(
+            {inventoryQuantity: -e.quantity},
+            { where: {sku: e.sku}});
+      }
+      if(e.buyOrSell=== 'Buy'){
+        db.Product.increment(
+          {inventoryQuantity: e.quantity},
+          {  where: {sku: e.sku}});
+    }
+    });
+
     } catch (error) {
       console.log(error);
       res.status(500);

@@ -55,6 +55,8 @@ function init() {
 
 init();
 
+//this var is declared to extract value from $ when sending over to serverside
+
 // display buy price or selt price
 function getBuyOrSellPrice(e) {
   var product_tr = $(this).parents('tr');
@@ -72,10 +74,10 @@ function getBuyOrSellPrice(e) {
     // setting buy or sell price
     if ($('#buy-sell_0', product_tr).val() === 'Buy') {
       $('<span>').appendTo($('#price-per-unit_0', product_tr)).text("$" + res.currentPurchasePrice);
+
     } else if ($('#buy-sell_0', product_tr).val() === 'Sell'){
       $('<span>').appendTo($('#price-per-unit_0', product_tr)).text("$" + res.currentSalePrice);
     }
-
     // show product 'not available' when quantity = 0
     if (res.inventoryQuantity <= 0) {
       $('<span>').appendTo($('#quantity_0', product_tr)).attr('value', 'Not Available').text('Not Available');
@@ -167,7 +169,7 @@ submitOrder.on('click', (event) => {
       clientName: $('#client-name_0', row).val(),
       sku: $('#sku_0', row).val(),
       quantity: $('#quantity_0', row).val(),
-      pricePerUnit: $('#price-per-unit_0', row).text(),
+      pricePerUnit: $('#price-per-unit_0', row).text().replace(/[^0-9]/gi, ''),
     });
   });
 
@@ -175,7 +177,7 @@ submitOrder.on('click', (event) => {
 
   // Call addOrder function to add new inventory, and clear the form
   addOrder(newOrderData);
-  window.location.replace('/inventory');
+  //window.location.replace('/inventory');
 });
 
 $('#close-screen').on('click', (e) => {

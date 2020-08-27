@@ -16,12 +16,12 @@ $(document).ready(() => {
   // Parses sku number from the URL
   const url = window.location.href.split('/');
 
-  $.ajax({
-    method: 'GET',
-    url: `/api/product/${url[5]}`,
-  }).then((res) => {
-    renderProdData(res);
-  });
+  // $.ajax({
+  //   method: 'GET',
+  //   url: `/api/product/${url[5]}`,
+  // }).then((res) => {
+  //   renderProdData(res);
+  // });
 
   // Populates the update form.
   function renderProdData(data) {
