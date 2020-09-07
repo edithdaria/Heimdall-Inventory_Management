@@ -8,16 +8,19 @@
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a href="/"><img class="nav-brand invLogo ml-5" src="/img/heimdall_smaller.png" alt="heimdall logo"></a>
     <form class="form-inline mr-5">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button type="button" id="newOrder" class="btn btn-primary btn-sm mx-4 my-sm-0" data-toggle="modal"
-                        data-target="#exampleModal" data-whatever="@mdo">New Order</button>
+                    <a href="/"><img class="nav-brand invLogo ml-auto" src="/img/heimdall_smaller.png"
+                            alt="heimdall logo"></a>
                 </li>
                 <li class="nav-item">
-                    <button type="button" id="newInventory" class="btn btn-primary btn-sm my-2 my-sm-0"
+                    <button type="button" id="newOrder" class="btn btn-primary btn-sm mx-4 my-sm-0 ml-auto"
+                        data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Order</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" id="newInventory" class="btn btn-primary btn-sm my-2 my-sm-0 ml-auto"
                         data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Inventory</button>
                 </li>
             </ul>
