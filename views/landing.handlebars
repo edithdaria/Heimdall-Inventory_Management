@@ -1,24 +1,51 @@
-<!--Heading-->
+<style>
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 18pt;
+    }
 
-<nav class="navbar-light vw-100 p-5 mb-5 d-flex justify-content-between">
-  <img class="p-5 ml-5" src="/img/heimdall_navy_blue.png" alt="Heimdall Logo" style="max-width: 35%; margin: auto;">
+    h3 {
+      font-size: 16pt;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    h2 {
+      font-size: 16pt;
+    }
+
+    h3 {
+      font-size: 14pt;
+    }
+
+  }
+</style>
+<nav class="navbar-light navbar-expand-md navbar-expand-sm navbar-expand-lg p-5 mb-5 d-flex">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <img class="p-5 mr-5" src="/img/heimdall_navy_blue.png" alt="Heimdall Logo" style="max-width:50%; margin: auto;">
   <!--Button to take you to INVENTORY-->
-  <a href="/inventory" class="p-5 mr-5">
-    <button type="button" class="btn btn-primary" id="inventoryBtn">Inventory</button>
-  </a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a href="/inventory" class="p-5 mr-5">
+      <button type="button" class="btn btn-primary" id="inventoryBtn">Inventory</button>
+    </a>
+  </div>
 </nav>
 
 <!-- Thor -->
-<div class="container p-5 d-flex flex-row justify-content-center align-items-center col-12"
-  style="border: none;">
+<div class="container p-5 d-flex flex-row justify-content-center align-items-center col-12" style="border: none;">
   <h2 class="col-5" style="padding: 0% 5%;">Looking for something so hard it almost seems like ...</h2>
-  <img src="/img/thor.hero.png" class="card-img ml-5 col-8" alt="Animated Thor stuck in a mess of electronics." style="padding: 0% 5%;">
+  <img src="/img/thor.hero.png" class="card-img ml-5 col-8" alt="Animated Thor stuck in a mess of electronics."
+    style="padding: 0% 5%;">
 </div>
 
 <!-- Loki -->
 <div class="container p-5 d-flex flex-row justify-content-center align-items-center col-12"
   style="border: none; margin-bottom: 5%">
-  <img src="/img/loki.hero.png" class="card-img mr-5 col-8" alt="Animated Thor stuck in a mess of electronics." style="padding: 0% 5%;">
+  <img src="/img/loki.hero.png" class="card-img mr-5 col-8" alt="Animated Thor stuck in a mess of electronics."
+    style="padding: 0% 5%;">
   <h2 class="col-5" style="padding: 0% 5%;">...someone is hiding it from you?</h2>
 </div>
 
@@ -26,10 +53,13 @@
 <!-- Heimdall Jumbo -->
 <div class="jumbotron jumbotron-fluid" style="background-color: #002855; padding: 15%;">
   <div class="container mx-auto">
-    <img src="/img/heimdall.hero.png" class="mx-auto d-block img-fluid pb-5" alt="Heimdall standing among flames." style="padding: 2% 2% 0% 2%;">
+    <img src="/img/heimdall.hero.png" class="mx-auto d-block img-fluid pb-5" alt="Heimdall standing among flames."
+      style="padding: 2% 2% 0% 2%;">
     <div class="mx-auto d-block">
-      <h2 class="display-4 text-center" style="color: azure;">The all-seeing, all-hearing Heimdall can find what you're looking for.</h2>
-      <h3 class="lead text-center" style="color: azure;">So you can have full access to your inventory without all of the sibling rivalry…
+      <h2 class="display-4 text-center" style="color: azure;">The all-seeing, all-hearing Heimdall can find what you're
+        looking for.</h2>
+      <h3 class="lead text-center" style="color: azure;">So you can have full access to your inventory without all of
+        the sibling rivalry…
       </h3>
     </div>
   </div>

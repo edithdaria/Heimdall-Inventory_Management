@@ -3,19 +3,22 @@
         background-color: #002855;
     }
 </style>
-<nav class="navbar-light bg-light invNav vw-100 navbar-expand-md navbar-expand-sm navbar-expand-lg ">
-
-    <a href="/"><img class="invLogo ml-5" src="/img/heimdall_smaller.png" alt="heimdall logo"></a>
+<nav class="navbar-light bg-light invNav navbar-expand-md navbar-expand-sm navbar-expand-lg ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/"><img class="nav-brand invLogo ml-5" src="/img/heimdall_smaller.png" alt="heimdall logo"></a>
     <form class="form-inline mr-5">
-        {{!-- NewOrder button --}}
-        <button type="button" id="newOrder" class="btn btn-primary btn-sm mx-4 my-sm-0" data-toggle="modal"
-            data-target="#exampleModal" data-whatever="@mdo">New Order</button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-        {{!-- NewInventory button --}}
-        <button type="button" id="newInventory" class="btn btn-primary btn-sm my-sm-0" data-toggle="modal"
-            data-target="#exampleModal" data-whatever="@mdo">New Inventory</button>
+            <button type="button" id="newOrder" class="btn btn-primary btn-sm mx-4 my-sm-0" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@mdo">New Order</button>
+
+            <button type="button" id="newInventory" class="btn btn-primary btn-sm my-2 my-sm-0" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@mdo">New Inventory</button>
+        </div>
     </form>
-
 </nav>
 
 <div class="card p-5 vw-100 mb-5 vh-75">
@@ -38,7 +41,8 @@
 
 <!-- Footer -->
 <div class="card text-white" id="pagination-container" style="background-color: #002855;">
-    <img src="/img/heimdall.base.png" class="mx-auto d-block img-fluid" style="max-width: 50%; padding-top:1rem; padding-bottom:5px;">
+    <img src="/img/heimdall.base.png" class="mx-auto d-block img-fluid"
+        style="max-width: 50%; padding-top:1rem; padding-bottom:5px;">
 </div>
 
 
